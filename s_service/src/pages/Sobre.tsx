@@ -3,6 +3,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 
+// Import amigável ao Vite/TS — não usa caminho absoluto
+const historiaImg = new URL("../assets/images/sobre/historia.jpg", import.meta.url).href;
+
 const Sobre: React.FC = () => {
   return (
     <main className="pt-16">
@@ -66,7 +69,7 @@ const Sobre: React.FC = () => {
             viewport={{ once: true }}
           >
             <img
-              src="/images/sobre/historia.jpg"
+              src={historiaImg}
               alt="Nossa equipe trabalhando em soluções de automação"
               className="rounded-2xl shadow-md"
               loading="lazy"
@@ -81,9 +84,9 @@ const Sobre: React.FC = () => {
           >
             <h2 className="text-2xl font-bold mb-4">Nossa História</h2>
             <p className="text-gray-700 leading-relaxed">
-              A <strong>Smart Service</strong> nasceu com a missão de simplificar processos e 
-              acelerar resultados por meio da tecnologia. Ao longo dos anos, ajudamos pequenas, 
-              médias e grandes empresas a transformar sua comunicação com clientes através de 
+              A <strong>Smart Service</strong> nasceu com a missão de simplificar processos e
+              acelerar resultados por meio da tecnologia. Ao longo dos anos, ajudamos pequenas,
+              médias e grandes empresas a transformar sua comunicação com clientes através de
               automações inteligentes e soluções sob medida.
             </p>
           </motion.article>

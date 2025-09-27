@@ -3,11 +3,13 @@ import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
+// Adicione a nova página "Sobre" aqui
 const navItems = [
   { label: "Home", path: "/" },
   { label: "Para seu negócio", path: "/para-seu-negocio" },
   { label: "Casos de sucesso", path: "/casos-de-sucesso" },
   { label: "Planos", path: "/planos" },
+  { label: "Sobre", path: "/sobre" }, // NOVO ITEM
 ];
 
 const Navbar: React.FC = () => {
