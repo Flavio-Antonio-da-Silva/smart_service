@@ -7,7 +7,7 @@ import { Menu, X } from "lucide-react";
 const navItems = [
   { label: "Home", path: "/" },
   { label: "Para seu negócio", path: "/para-seu-negocio" },
-  { label: "Casos de sucesso", path: "/casos-de-sucesso" },
+  { label: "Ideal Para Quem?", path: "/casos-de-sucesso" },
   { label: "Planos", path: "/planos" },
   { label: "Sobre", path: "/sobre" }, // NOVO ITEM
 ];

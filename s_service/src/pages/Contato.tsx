@@ -1,7 +1,32 @@
 // src/pages/Contato.tsx
-import React from "react";
+import React, { useState } from "react";
 
 const Contato: React.FC = () => {
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus("loading");
+    const formData = new FormData(e.currentTarget);
+
+    try {
+      const response = await fetch("https://formspree.io/f/mkgqjdkn", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: formData,
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        e.currentTarget.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
+
   return (
     <main className="pt-16">
       {/* Hero */}
@@ -12,31 +37,54 @@ const Contato: React.FC = () => {
         </p>
       </section>
 
-      {/* Formulário simples */}
+      {/* Formulário moderno */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-xl mx-auto px-6">
-          <form className="space-y-6 bg-white shadow-lg rounded-2xl p-8">
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-6 bg-white shadow-lg rounded-2xl p-8"
+          >
             <input
               type="text"
+              name="name"
               placeholder="Seu nome"
+              required
               className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
             />
             <input
               type="email"
+              name="email"
               placeholder="Seu e-mail"
+              required
               className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
             />
             <textarea
+              name="message"
               placeholder="Sua mensagem"
               rows={5}
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
+              required
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none resize-none"
             />
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:scale-105 transition-transform"
+              disabled={status === "loading"}
+              className={`w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:scale-105 transition-transform ${
+                status === "loading" ? "opacity-70 cursor-not-allowed" : ""
+              }`}
             >
-              Enviar mensagem
+              {status === "loading" ? "Enviando..." : "Enviar mensagem"}
             </button>
+
+            {status === "success" && (
+              <p className="text-green-600 mt-2 font-medium">
+                Mensagem enviada com sucesso!
+              </p>
+            )}
+            {status === "error" && (
+              <p className="text-red-600 mt-2 font-medium">
+                Ocorreu um erro. Tente novamente.
+              </p>
+            )}
           </form>
         </div>
       </section>

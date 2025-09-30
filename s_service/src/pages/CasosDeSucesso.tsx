@@ -48,14 +48,14 @@ const CasosDeSucesso: React.FC = () => {
     <main className="pt-16">
       {/* SEO Avançado */}
       <Helmet>
-        <title>Casos de Sucesso | Smart Service</title>
+        <title>Para você  | Smart Service</title>
         <meta
           name="description"
           content="Veja como empresas de diversos setores aumentaram seus resultados com automações inteligentes e agentes de IA. Casos reais de sucesso!"
         />
         <link rel="canonical" href="https://www.smartservice.com/casos-de-sucesso" />
 
-        {/* Open Graph (Facebook, LinkedIn, etc.) */}
+        {/* Open Graph */}
         <meta property="og:title" content="Casos de Sucesso | Smart Service" />
         <meta
           property="og:description"
@@ -77,36 +77,34 @@ const CasosDeSucesso: React.FC = () => {
 
       {/* Hero */}
       <section className="bg-gradient-to-r from-purple-600 to-blue-600 text-white py-20 text-center">
-        <h1 className="text-4xl md:text-5xl font-extrabold mb-4">Casos de Sucesso</h1>
+        <h1 className="text-4xl md:text-5xl font-extrabold mb-4">Seus clientes assistidos 24h!</h1>
         <p className="max-w-2xl mx-auto text-lg md:text-xl">
-          Descubra como empresas transformaram seus resultados com automações inteligentes e agentes de IA.
+          Descubra como empresas transformam seus resultados com automações inteligentes e agentes de IA.
         </p>
       </section>
 
       {/* Slider Responsivo */}
       <section className="py-16 bg-gray-50 relative overflow-hidden">
-        <div className="max-w-[95vw] mx-auto overflow-hidden">
+        <div className="max-w-[95vw] mx-auto">
           {/* Desktop: auto scroll infinito */}
           <motion.div
             className="hidden md:flex gap-6"
             animate={{ x: ["0%", "-100%"] }}
-            transition={{ repeat: Infinity, duration: 90, ease: "linear" }}
+            transition={{ repeat: Infinity, duration: 60, ease: "linear" }}
           >
             {[...cases, ...cases].map((c, i) => (
               <CaseCard key={`${c.id}-${i}`} data={c} />
             ))}
           </motion.div>
 
-          {/* Mobile: drag/swipe */}
-          <motion.div
-            className="flex md:hidden gap-6 overflow-x-hidden cursor-grab active:cursor-grabbing"
-            drag="x"
-            dragConstraints={{ left: -((cases.length - 1) * 300), right: 0 }}
-          >
+          {/* Mobile: scroll nativo com snap */}
+          <div className="flex md:hidden gap-6 overflow-x-auto snap-x  px-4 scrollbar-hide">
             {cases.map((c) => (
-              <CaseCard key={c.id} data={c} />
+              <div key={c.id} className="snap-start shrink-0 w-[80%] sm:w-[70%]">
+                <CaseCard data={c} />
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 

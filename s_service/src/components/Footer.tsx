@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
           {/* Redes sociais */}
           <div>
             <h3 className="text-lg font-semibold text-white mb-3">
-              Conecte-se
+              Me siga nas redes!
             </h3>
             <div className="flex space-x-4">
               {socialLinks.map((item, i) => (
@@ -72,7 +72,7 @@ const Footer: React.FC = () => {
 
         {/* Linha inferior */}
         <div className="mt-8 border-t border-gray-700 pt-6 text-center text-sm text-gray-500">
-          © {new Date().getFullYear()} Smart Service. Todos os direitos
+          © {new Date().getFullYear()}  Flavusdevoper. Todos os direitos
           reservados.
         </div>
       </div>
