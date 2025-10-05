@@ -3,6 +3,7 @@ import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import SEO from "./components/SEO"; // 🔹 IMPORTAR
 
 // Lazy loading das páginas
 const Home = lazy(() => import("./pages/Home"));
@@ -23,6 +24,14 @@ const App = () => {
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
+        {/* 🔹 SEO aplicado aqui */}
+        <SEO
+          title="Smart Service - Automação Inteligente"
+          description="Soluções modernas em automação para o seu negócio."
+          url="https://smart-service-gamma.vercel.app/"
+          image="https://smart-service-gamma.vercel.app/fundo-pj-3.png?v=1"
+        />
+
         <Navbar />
         <main className="flex-1 pt-16">
           <Suspense fallback={<PageLoader />}>
