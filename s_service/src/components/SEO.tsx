@@ -10,7 +10,8 @@ interface SEOProps {
 }
 
 const SEO: React.FC<SEOProps> = ({ title, description, url, image }) => {
-  const defaultImage = image || "/seo-default.jpg"; // 🔹 imagem default (coloque em public/)
+  // 🔹 Imagem padrão para os cards sociais
+  const defaultImage = image || "https://smart-service-gamma.vercel.app/fundo-pj-3.png";
   const siteName = "Smart Service - Automação Inteligente";
 
   return (
@@ -19,13 +20,16 @@ const SEO: React.FC<SEOProps> = ({ title, description, url, image }) => {
       <title>{title}</title>
       <meta name="description" content={description} />
 
-      {/* Open Graph (Facebook, LinkedIn, etc.) */}
+      {/* Open Graph (Facebook, LinkedIn, WhatsApp) */}
       <meta property="og:type" content="website" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:site_name" content={siteName} />
       {url && <meta property="og:url" content={url} />}
       <meta property="og:image" content={defaultImage} />
+      <meta property="og:image:type" content="image/png" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
 
       {/* Twitter Cards */}
       <meta name="twitter:card" content="summary_large_image" />
