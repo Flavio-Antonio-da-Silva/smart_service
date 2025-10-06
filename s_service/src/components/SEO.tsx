@@ -10,8 +10,9 @@ interface SEOProps {
 }
 
 const SEO: React.FC<SEOProps> = ({ title, description, url, image }) => {
-  // 🔹 Imagem padrão para os cards sociais
-  const defaultImage = image || "https://smart-service-gamma.vercel.app/fundo-pj-3.png";
+  // 🔹 Imagem padrão para os cards sociais:
+  //    USANDO CAMINHO ESTÁTICO ( /nome-do-arquivo.png )
+  const defaultImage = image || "/fundo-pj-3.png"; 
   const siteName = "Smart Service - Automação Inteligente";
 
   return (

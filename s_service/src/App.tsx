@@ -28,8 +28,10 @@ const App = () => {
         <SEO
           title="Smart Service - Automação Inteligente"
           description="Soluções modernas em automação para o seu negócio."
+          // MANTENHA A URL COMPLETA
           url="https://smart-service-gamma.vercel.app/"
-          image="https://smart-service-gamma.vercel.app/fundo-pj-3.png?v=1"
+          // ⚠️ AJUSTADO: APENAS O CAMINHO ESTÁTICO A PARTIR DA RAIZ
+          image="/fundo-pj-3.png?v=1"
         />
 
         <Navbar />
