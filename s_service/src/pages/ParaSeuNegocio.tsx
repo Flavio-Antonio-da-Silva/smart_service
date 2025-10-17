@@ -2,6 +2,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Stethoscope, Building2, Car, Briefcase, Users, ShieldCheck } from "lucide-react";
+import { Link } from "react-router-dom"; // <- Import necessário do React Router
+
 
 // --- Interfaces TypeScript ---
 interface Nicho {
