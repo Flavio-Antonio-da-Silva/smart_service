@@ -2,6 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom"; // <- Import necessário do React Router
 
 // Import amigável ao Vite/TS — não usa caminho absoluto
 const historiaImg = new URL("../assets/images/sobre/historia.jpg", import.meta.url).href;
@@ -16,8 +17,6 @@ const Sobre: React.FC = () => {
           name="description"
           content="Conheça a Smart Service: missão, visão e valores que guiam nosso trabalho em automação inteligente e IA aplicada a negócios."
         />
-
-        {/* Open Graph */}
         <meta property="og:title" content="Sobre Nós | Smart Service" />
         <meta
           property="og:description"
@@ -26,8 +25,6 @@ const Sobre: React.FC = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://smartservice.com/sobre" />
         <meta property="og:image" content="https://smartservice.com/og-image-sobre.png" />
-
-        {/* Twitter Cards */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Sobre Nós | Smart Service" />
         <meta
@@ -141,12 +138,12 @@ const Sobre: React.FC = () => {
             <p className="mb-6 text-lg">
               Entre em contato e descubra como podemos potencializar seu negócio com automação e IA.
             </p>
-            <a
-              href="/contato"
+            <Link
+              to="/contato" // <- Alterado para Link do React Router
               className="inline-block px-8 py-3 rounded-full bg-white text-purple-600 font-semibold shadow hover:brightness-95 transition"
             >
               Fale Conosco
-            </a>
+            </Link>
           </motion.div>
         </div>
       </section>

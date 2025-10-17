@@ -2,6 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom"; // <- Import necessário do React Router
 
 // -------------------------------
 // Tipagens (TypeScript)
@@ -85,8 +86,8 @@ const PlanCard: React.FC<{ plan: Plan }> = ({ plan }) => {
       )}
 
       <div className="w-full mt-4">
-        <a
-          href="/contato"
+        <Link
+          to="/contato" // <- Alterado para Link do React Router
           role="button"
           aria-label={`Quero o plano ${plan.nome}`}
           data-plan-id={plan.id}
@@ -94,10 +95,9 @@ const PlanCard: React.FC<{ plan: Plan }> = ({ plan }) => {
             ${plan.destaque ? "bg-purple-600 text-white hover:scale-105" : "bg-gray-200 text-gray-900 hover:scale-102"}`}
         >
           {plan.destaque ? "Assinar plano" : "Quero este plano"}
-        </a>
+        </Link>
       </div>
 
-      {/* Marca visual sutil para destaque (acessível) */}
       {plan.destaque && (
         <span className="absolute left-4 top-4 inline-block rounded-full bg-purple-600 text-white text-xs px-2 py-1">
           Mais Popular
@@ -164,9 +164,9 @@ const Planos: React.FC = () => {
             <div>
               <p className="text-sm text-gray-700">
                 Precisa de algo custom?{" "}
-                <a className="text-purple-600 font-semibold" href="/contato">
+                <Link className="text-purple-600 font-semibold" to="/contato">
                   Solicite um orçamento
-                </a>
+                </Link>
               </p>
             </div>
           </div>
@@ -223,12 +223,12 @@ const Planos: React.FC = () => {
             <p className="mb-6 text-lg">
               Solicite um orçamento e teremos prazer em desenhar uma solução sob medida com garantias e acompanhamento.
             </p>
-            <a
-              href="/contato"
+            <Link
+              to="/contato" // <- Alterado para Link do React Router
               className="inline-block px-8 py-3 rounded-full bg-white text-purple-600 font-semibold shadow hover:brightness-95 transition"
             >
               Solicitar orçamento
-            </a>
+            </Link>
           </motion.div>
         </div>
       </section>

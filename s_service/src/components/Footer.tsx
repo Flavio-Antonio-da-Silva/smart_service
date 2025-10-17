@@ -1,6 +1,6 @@
 // src/components/Footer.tsx
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; // <- React Router já importado
 import { Facebook, Instagram, Linkedin } from "lucide-react";
 
 const footerLinks = [
@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
               {footerLinks.map((link) => (
                 <li key={link.path}>
                   <Link
-                    to={link.path}
+                    to={link.path} // <- React Router usado para navegação interna
                     className="hover:text-purple-400 transition-colors"
                   >
                     {link.label}
@@ -72,7 +72,7 @@ const Footer: React.FC = () => {
 
         {/* Linha inferior */}
         <div className="mt-8 border-t border-gray-700 pt-6 text-center text-sm text-gray-500">
-          © {new Date().getFullYear()}  Flavusdevoper. Todos os direitos
+          © {new Date().getFullYear()} Flavusdevoper. Todos os direitos
           reservados.
         </div>
       </div>

@@ -1,5 +1,6 @@
 // src/components/home/CTA.tsx
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom"; // <- Import necessário do React Router
 
 const CTA = () => {
   return (
@@ -18,12 +19,12 @@ const CTA = () => {
           Vamos juntos levar seu negócio ao próximo nível com tecnologia e
           inovação.
         </p>
-        <a
-          href="/contato"
+        <Link
+          to="/contato" // <- Alterado para Link do React Router
           className="px-8 py-4 bg-white text-purple-600 font-semibold rounded-full shadow-lg hover:scale-105 transition-transform"
         >
           Fale com a gente
-        </a>
+        </Link>
       </motion.div>
     </section>
   );
