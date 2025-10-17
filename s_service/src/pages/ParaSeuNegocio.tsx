@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { Stethoscope, Building2, Car, Briefcase, Users, ShieldCheck } from "lucide-react";
 import { Link } from "react-router-dom"; // <- Import necessário do React Router
 
-
 // --- Interfaces TypeScript ---
 interface Nicho {
   icon: React.ReactNode;
@@ -148,12 +147,12 @@ const ParaSeuNegocio: React.FC = () => {
             Aumente sua eficiência, fidelize clientes e esteja disponível 24h
             por dia.
           </p>
-          <a
-            href="/planos"
+          <Link
+            to="/planos" // <- Alterado para Link do React Router
             className="px-8 py-4 bg-white text-purple-600 font-semibold rounded-full shadow-lg hover:scale-105 transition-transform"
           >
             Veja os planos
-          </a>
+          </Link>
         </motion.div>
       </section>
     </main>
