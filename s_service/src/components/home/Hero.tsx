@@ -1,5 +1,6 @@
 // src/components/home/Hero.tsx
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom"; // <- Import necessário do React Router
 
 const Hero = () => {
   return (
@@ -13,6 +14,7 @@ const Hero = () => {
         >
           Sua Presença Digital ao Próximo Nível
         </motion.h1>
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -22,17 +24,18 @@ const Hero = () => {
           Descubra como a automação inteligente pode transformar a captação de
           leads, o atendimento ao cliente e o crescimento do seu negócio.
         </motion.p>
+
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.6, duration: 0.6 }}
         >
-          <a
-            href="/planos"
+          <Link
+            to="/planos"
             className="px-6 py-3 bg-white text-blue-600 font-semibold rounded-full shadow-lg hover:scale-105 transition-transform"
           >
             Conheça nossos planos
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>
